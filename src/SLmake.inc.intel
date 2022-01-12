@@ -1,0 +1,16 @@
+F77=mpif90 -fc=ifort
+#F77FLAGS=-g -fopenmp -fcheck=all,no-array-temps
+#F77FLAGS=-O3 -qopenmp -heap-arrays -fp-model precise -rdynamic -mavx
+F77FLAGS=-O3 -openmp
+
+F77LOADER=mpif90 -fc=ifort
+F77LOADFLAGS=-O3 -openmp
+
+ARCH      = ar
+ARCHFLAGS = cr
+RANLIB    = ranlib
+
+MKLROOT=/BIGDATA1/app/intelcompiler/14.0.2/composer_xe_2013_sp1.2.144/mkl
+
+BLASLIB=-mkl=parallel
+BLACSLIB=-lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_core -lmkl_intel_thread -lmkl_blacs_intelmpi_lp64 -lpthread -lm
